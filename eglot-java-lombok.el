@@ -31,21 +31,12 @@
     (setf (url-filename lombok-url) file-path)
     (url-copy-file lombok-url (eglot-java-lombok/jar-path))))
 
-(defun eglot-jdt-contract ()
-  "Return cons (CLASS . ARGS) for connecting to Eclipse JDT.
-If INTERACTIVE, prompt user for details."
-  (cons 'eglot-jdt-server
-        (list
-	  "jdtls"
-	  "-XX:+UseG1GC"
-	  (concat "--jvm-arg=-javaagent:" (eglot-java-lombok/jar-path)))))
-
 (defun eglot-java-lombok/append-vmargs ()
   "Apply lombok args."
-	(add-to-list 'eglot-server-programs
-	     `(java-mode "jdtls"
-			 "-XX:+UseG1GC"
-			 ,(concat "--jvm-arg=-javaagent:" (eglot-java-lombok/jar-path)))))
+  (add-to-list 'eglot-server-programs
+    `((java-mode java-ts-mode) "jdtls"
+	"-XX:+UseG1GC"
+	,(concat "--jvm-arg=-javaagent:" (eglot-java-lombok/jar-path)))))
 
 (defun eglot-java-lombok/setup ()
   "Download Lombok if it hasn't been downloaded already."
