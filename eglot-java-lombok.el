@@ -42,8 +42,10 @@ If INTERACTIVE, prompt user for details."
 
 (defun eglot-java-lombok/append-vmargs ()
   "Apply lombok args."
-  (add-to-list 'eglot-server-programs '(java-mode . eglot-jdt-contract))
-  (add-to-list 'eglot-server-programs '(java-ts-mode . eglot-jdt-contract)))
+	(add-to-list 'eglot-server-programs
+	     `(java-mode "jdtls"
+			 "-XX:+UseG1GC"
+			 ,(concat "--jvm-arg=-javaagent:" (eglot-java-lombok/jar-path)))))
 
 (defun eglot-java-lombok/setup ()
   "Download Lombok if it hasn't been downloaded already."
