@@ -34,8 +34,7 @@
 (defun eglot-java-lombok/append-vmargs ()
   "Apply lombok args."
   (add-to-list 'eglot-server-programs
-    `((java-mode java-ts-mode) "jdtls"
-	"-XX:+UseG1GC"
+    `((java-mode java-ts-mode) "jdtls"	
 	,(concat "--jvm-arg=-javaagent:" (eglot-java-lombok/jar-path)))))
 
 (defun eglot-java-lombok/setup ()
