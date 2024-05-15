@@ -21,7 +21,7 @@
 
 (defun eglot-java-lombok/jar-path ()
   "Generate the path on disk for the Lombok jar."
-  (concat user-emacs-directory (eglot-java-lombok/jar-file)))
+  (concat (expand-file-name user-emacs-directory) (eglot-java-lombok/jar-file)))
 
 (defun eglot-java-lombok/download-jar ()
   "Download the latest lombok jar for use with LSP."
