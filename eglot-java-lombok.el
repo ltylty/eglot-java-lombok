@@ -1,16 +1,10 @@
 (require 'eglot)
 
-(defvar eglot-java-lombok/enabled nil
-  "Indicates the LSP server should be started with Lombok.")
-
 (defvar eglot-java-lombok/version nil
   "When non-nil, use the specified Lombok version, otherwise use the latest.")
 
 (defvar eglot-java-lombok/jar-url-base "https://projectlombok.org/downloads/"
   "The base path to download Lombok jars from.")
-
-(defvar eglot-java-lombok/dir user-emacs-directory
-  "The path on disk where lombok jars are saved.")
 
 (defun eglot-java-lombok/jar-file ()
   "Get the filename for the Lombok jar."
@@ -45,8 +39,7 @@
 
 (defun eglot-java-lombok/init ()
   "Initialize eglot-java-lombok."
-  (when eglot-java-lombok/enabled
-    (eglot-java-lombok/setup)
-    (eglot-java-lombok/append-vmargs)))
+  (eglot-java-lombok/setup)
+  (eglot-java-lombok/append-vmargs))
 
 (provide 'eglot-java-lombok)
