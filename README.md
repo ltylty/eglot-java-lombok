@@ -1,4 +1,4 @@
-lombok support for java in emacs
+lombok support for java in emacs eglot
 # install
 for emacs29
 ```
