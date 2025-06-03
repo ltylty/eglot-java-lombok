@@ -1,9 +1,9 @@
 lombok support for java in emacs eglot
 # install
-for emacs29
+for emacs30
 ```
-    (unless (package-installed-p 'eglot-java-lombok)
-     (package-vc-install "https://github.com/ltylty/eglot-java-lombok"))
-    (require 'eglot-java-lombok)
-    (eglot-java-lombok/init)
+(use-package eglot-java-lombok :ensure t 
+  :vc (:url "https://github.com/ltylty/eglot-java-lombok" :branch "main" :rev :newest)
+  :config
+  (eglot-java-lombok/init))
 ```
