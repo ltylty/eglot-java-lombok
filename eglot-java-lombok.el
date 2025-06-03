@@ -25,15 +25,15 @@
     (setf (url-filename lombok-url) file-path)
     (url-copy-file lombok-url (eglot-java-lombok/jar-path))))
 
-(defun eglot-java-lombok/append-vmargs ()
-  "Apply lombok args."
-  (add-to-list 'eglot-java-eclipse-jdt-args (concat "-javaagent:" (eglot-java-lombok/jar-path))))
-
 (defun eglot-java-lombok/setup ()
   "Download Lombok if it hasn't been downloaded already."
   (when (not (file-exists-p (eglot-java-lombok/jar-path)))
     (message "Could not find lombok for lsp-java.  Downloading...")
     (eglot-java-lombok/download-jar)))
+
+(defun eglot-java-lombok/append-vmargs ()
+  "Apply lombok args."
+  (add-to-list 'eglot-java-eclipse-jdt-args (concat "-javaagent:" (eglot-java-lombok/jar-path))))
 
 (defun eglot-java-lombok/init ()
   "Initialize eglot-java-lombok."
