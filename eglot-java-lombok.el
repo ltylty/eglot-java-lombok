@@ -1,4 +1,4 @@
-(require 'eglot)
+(require 'eglot-java)
 
 (defvar eglot-java-lombok/version nil
   "When non-nil, use the specified Lombok version, otherwise use the latest.")
@@ -27,9 +27,7 @@
 
 (defun eglot-java-lombok/append-vmargs ()
   "Apply lombok args."
-  (add-to-list 'eglot-server-programs
-    `((java-mode java-ts-mode) "jdtls"	
-	,(concat "--jvm-arg=-javaagent:" (eglot-java-lombok/jar-path)))))
+  (add-to-list 'eglot-java-eclipse-jdt-args (concat "-javaagent:" (eglot-java-lombok/jar-path))))
 
 (defun eglot-java-lombok/setup ()
   "Download Lombok if it hasn't been downloaded already."
