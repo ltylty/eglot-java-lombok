@@ -3,7 +3,7 @@
 (defvar eglot-java-lombok/version nil
   "When non-nil, use the specified Lombok version, otherwise use the latest.")
 
-(defvar eglot-java-lombok/jar-url-base "https://projectlombok.org/download/"
+(defvar eglot-java-lombok/jar-url-base "https://projectlombok.org/downloads/"
   "The base path to download Lombok jars from.")
 
 (defun eglot-java-lombok/jar-file ()
