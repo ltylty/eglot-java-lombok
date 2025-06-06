@@ -28,7 +28,7 @@
 (defun eglot-java-lombok/setup ()
   "Download Lombok if it hasn't been downloaded already."
   (when (not (file-exists-p (eglot-java-lombok/jar-path)))
-    (message "Could not find lombok for lsp-java.  Downloading...")
+    (message "Could not find lombok")
     (eglot-java-lombok/download-jar)))
 
 (defun eglot-java-lombok/append-vmargs ()
